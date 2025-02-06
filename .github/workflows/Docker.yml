@@ -7,6 +7,7 @@ jobs:
 
   docker:
     runs-on: ubuntu-latest
+    environment: Docker
     steps:
     - uses: actions/checkout@v4
 
@@ -21,7 +22,7 @@ jobs:
     - name: Login to Docker
       uses: docker/login-action@v3
       with:
-        username: ${{ vars.DOCKER_HUB_USERNAME }}
+        username: ${{ var.DOCKER_HUB_USERNAME }}
         password: ${{ secrets.DOCKER_HUB_PASSWORD }}
     
     - name: Build and push Docker images
