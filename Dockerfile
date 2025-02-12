@@ -4,6 +4,6 @@ EXPOSE 8080
 
 WORKDIR /app
 
-COPY target/simple-api-0.0.1-SNAPSHOT.jar app.jar
+COPY target/*.jar app.jar
 
 CMD ["java", "-jar", "app.jar"]
