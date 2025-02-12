@@ -35,7 +35,7 @@ class UserControllerTest {
     private UserModel generateUserModel() {
         UserModel userModel = new UserModel();
         Random random = new Random();
-        int randomNumber = random.nextInt(10);
+        int randomNumber = random.nextInt(1000) * random.nextInt(1000);
         userModel.setName("user" + randomNumber);
         userModel.setEmail("exemplo"+randomNumber+"@email.com");
         userModel.setCreationDate(LocalDateTime.now());
