@@ -61,4 +61,6 @@ jobs:
 
   deploy:
     needs: docker
+    permissions:
+      id-token: write
     uses: ./.github/workflows/terraform.yml
