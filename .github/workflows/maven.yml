@@ -61,27 +61,4 @@ jobs:
 
   deploy:
     needs: docker
-    runs-on: ubuntu-latest
-    environment: Docker
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Config AWS credentials
-        uses: aws-actions/configure-aws-credentials@v4
-        with:
-          role-to-assume: arn:aws:iam::329599629292:role/github-actions
-          aws-region: 'us-west-2'
-
-      - name: Set up Terraform
-        uses: hashicorp/setup-terraform@v3
-        with:
-          terraform_version: 'latest'
-
-      - name: Change directory to dev
-        run: cd ./terraform/env/dev/
-
-      - name: Init Terraform
-        run: terraform init
-
-      - name: Apply Terraform
-        run: terraform apply -auto-approve -var="image_name=${{ vars.DOCKER_HUB_USERNAME }}/java-api:${{ github.ref_name }}"
+    uses: ./.github/workflows/terraform.yml
