@@ -35,3 +35,5 @@ jobs:
 
       - name: Apply Terraform
         run: terraform apply -auto-approve -var="image_name=${{ vars.DOCKER_HUB_USERNAME }}/java-api:${{ github.ref_name }}"
+        env:
+          TF_VAR_image_name: ${{ vars.DOCKER_HUB_USERNAME }}/java-api:${{ github.ref_name }}
