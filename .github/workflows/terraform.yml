@@ -30,8 +30,8 @@ jobs:
       - name: Init Terraform
         run: terraform init
 
-      - name: Terraform Validade
-        run: terraform validade
+      - name: Terraform Validate
+        run: terraform validate
 
       - name: Apply Terraform
         run: terraform apply -auto-approve -var="image_name=${{ vars.DOCKER_HUB_USERNAME }}/java-api:${{ github.ref_name }}"
